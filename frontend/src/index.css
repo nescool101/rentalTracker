@@ -1,0 +1,375 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+/* ==============================================
+   RESPONSIVE MOBILE & TABLET ENHANCEMENTS
+   ============================================== */
+
+/* General mobile optimizations */
+@media (max-width: 768px) {
+  /* Improve touch targets */
+  button, .mantine-Button-root {
+    min-height: 44px !important;
+    min-width: 44px !important;
+    padding: 12px 16px !important;
+    font-size: 16px !important; /* Previene zoom en iOS */
+  }
+  
+  /* Mejorar navegación móvil */
+  .mantine-AppShell-navbar {
+    width: 280px !important;
+  }
+  
+  /* Optimizar espaciado en móvil */
+  .mantine-Container-root {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+  
+  /* Títulos más pequeños en móvil */
+  .mantine-Title-root[data-order="1"] {
+    font-size: 1.8rem !important;
+    line-height: 1.3 !important;
+    margin-bottom: 1rem !important;
+  }
+  
+  .mantine-Title-root[data-order="2"] {
+    font-size: 1.5rem !important;
+    line-height: 1.3 !important;
+  }
+  
+  .mantine-Title-root[data-order="3"] {
+    font-size: 1.3rem !important;
+    line-height: 1.3 !important;
+  }
+  
+  /* Ajustar tarjetas de estadísticas en dashboard */
+  .mantine-Card-root {
+    padding: 16px !important;
+    margin-bottom: 12px !important;
+  }
+  
+  /* Mejorar progreso circular en móvil */
+  .mantine-RingProgress-root {
+    width: 60px !important;
+    height: 60px !important;
+  }
+  
+  /* Optimizar grupos de elementos */
+  .mantine-Group-root {
+    gap: 12px !important;
+  }
+  
+  /* Mejorar formularios en móvil */
+  .mantine-TextInput-input,
+  .mantine-NumberInput-input,
+  .mantine-Select-input,
+  .mantine-Textarea-input {
+    font-size: 16px !important; /* Previene zoom en iOS */
+    min-height: 44px !important;
+  }
+  
+  /* Mejores alertas en móvil */
+  .mantine-Alert-root {
+    margin-bottom: 16px !important;
+    padding: 16px !important;
+  }
+  
+  /* Mejorar listas en móvil */
+  .mantine-List-root {
+    margin-left: 0 !important;
+  }
+  
+  .mantine-List-item {
+    margin-bottom: 16px !important;
+    padding: 12px !important;
+  }
+  
+  /* Header más compacto en móvil */
+  .mantine-AppShell-header {
+    height: 56px !important;
+  }
+  
+  .mantine-AppShell-header .mantine-Group-root {
+    height: 56px !important;
+  }
+  
+  .mantine-AppShell-header .mantine-Title-root {
+    font-size: 1.2rem !important;
+  }
+}
+
+/* Tablet landscape optimizations */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .mantine-Container-root {
+    max-width: 95% !important;
+  }
+  
+  /* Ajustar grid para tablets */
+  .mantine-SimpleGrid-root {
+    column-gap: 16px !important;
+    row-gap: 16px !important;
+  }
+  
+  /* Mejor aprovechamiento del espacio en tablet */
+  .mantine-AppShell-navbar {
+    width: 260px !important;
+  }
+}
+
+/* Smartphones en portrait */
+@media (max-width: 480px) {
+  /* Stack todo en una columna */
+  .mantine-SimpleGrid-root {
+    grid-template-columns: 1fr !important;
+  }
+  
+  /* Reducir padding general */
+  .mantine-AppShell-main {
+    padding: 12px !important;
+  }
+  
+  /* Títulos aún más pequeños */
+  .mantine-Title-root[data-order="1"] {
+    font-size: 1.5rem !important;
+    text-align: center;
+  }
+  
+  /* Cards con menos padding */
+  .mantine-Card-root {
+    padding: 12px !important;
+  }
+  
+  /* Botones full-width en mobile */
+  .mantine-Button-root {
+    width: 100% !important;
+    margin-bottom: 8px !important;
+  }
+  
+  /* Mejorar espaciado de los iconos en listas */
+  .mantine-List-itemWrapper {
+    margin-bottom: 12px !important;
+  }
+  
+  .mantine-ThemeIcon-root {
+    margin-right: 12px !important;
+  }
+  
+  /* Header simplificado para móviles pequeños */
+  .mantine-AppShell-header .mantine-Group-root {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+  
+  /* Ocultar texto del usuario en móviles muy pequeños */
+  .mantine-AppShell-header .mantine-Text-root {
+    display: none !important;
+  }
+}
+
+/* Optimizaciones específicas para dispositivos touch */
+@media (hover: none) and (pointer: coarse) {
+  /* Áreas de toque más grandes */
+  .mantine-NavLink-root {
+    min-height: 48px !important;
+    padding: 12px 16px !important;
+  }
+  
+  /* Eliminar efectos hover que no funcionan en touch */
+  *:hover {
+    transform: none !important;
+    transition: none !important;
+  }
+  
+  /* Mejorar feedback visual en touch */
+  .mantine-Button-root:active,
+  .mantine-NavLink-root:active {
+    transform: scale(0.98) !important;
+    transition: transform 0.1s ease !important;
+  }
+}
+
+/* Landscape mode en móviles */
+@media (max-height: 500px) and (orientation: landscape) {
+  .mantine-AppShell-header {
+    height: 48px !important;
+  }
+  
+  .mantine-AppShell-navbar {
+    padding: 8px !important;
+  }
+  
+  .mantine-NavLink-root {
+    padding: 8px 12px !important;
+    margin-bottom: 2px !important;
+  }
+}
+
+/* Dark mode enhancements for mobile */
+@media (prefers-color-scheme: dark) {
+  @media (max-width: 768px) {
+    /* Mejor contraste en modo oscuro móvil */
+    .mantine-Card-root {
+      border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    }
+    
+    .mantine-Alert-root {
+      border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    }
+  }
+}
+
+/* Reducir animaciones en dispositivos con batería baja */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Custom modal styling for better centering - using a different approach */
+.mantine-Modal-content {
+  /* Reset any margin or positioning that might interfere */
+  margin: 0 !important;
+  max-width: 90% !important;
+  width: auto !important;
+  
+  /* Absolute positioning for perfect centering */
+  position: fixed !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  
+  /* Visual enhancements */
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5) !important;
+  border-radius: 8px !important;
+  z-index: 1000 !important;
+}
+
+/* Responsive modal adjustments */
+@media (max-width: 768px) {
+  .mantine-Modal-content {
+    max-width: 95% !important;
+    max-height: 90vh !important;
+    margin: 20px !important;
+    position: relative !important;
+    transform: none !important;
+    top: auto !important;
+    left: auto !important;
+  }
+  
+  .mantine-Modal-inner {
+    padding: 10px !important;
+    padding-top: 5vh !important;
+    padding-bottom: 5vh !important;
+  }
+}
+
+/* Force all modals to capture clicks */
+.mantine-Modal-root * {
+  pointer-events: auto !important;
+}
+
+.mantine-Modal-overlay {
+  background-color: rgba(0, 0, 0, 0.75) !important;
+  backdrop-filter: blur(4px);
+}
+
+.mantine-Modal-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px !important;
+  overflow-y: auto;
+  align-items: flex-start;
+  padding-top: 10vh !important;
+  padding-bottom: 10vh !important;
+}
+
+/* Fix form inputs in modals */
+.mantine-Modal-content .mantine-TextInput-input,
+.mantine-Modal-content .mantine-NumberInput-input,
+.mantine-Modal-content .mantine-DateInput-input,
+.mantine-Modal-content .mantine-Select-input,
+.mantine-Modal-content .mantine-Textarea-input {
+  pointer-events: auto !important;
+  z-index: 1100 !important; /* Higher than modal's z-index */
+  position: relative !important;
+}
+
+/* Special handling for select dropdowns */
+.mantine-Select-dropdown,
+.mantine-DateInput-dropdown,
+.mantine-ComboboxPopover-dropdown {
+  z-index: 1200 !important;
+  position: absolute !important;
+}

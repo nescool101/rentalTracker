@@ -1,0 +1,5 @@
+update storage.go and payers.json with the arrendamiento info
+
+to redeploy use>
+flyctl deploy
+renter will be the landlord, rental will be the tenant

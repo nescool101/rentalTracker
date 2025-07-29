@@ -1,0 +1,1 @@
+curl 'http://localhost:8080/api/users/login' -X POST -H 'Content-Type: application/json' --data-raw '{"email":"test@example.com","password":"cGFzc3dvcmQxMjM="}'

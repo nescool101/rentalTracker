@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      - SERVER_PORT=8080
+      - GIN_MODE=release
+      - PAYERS_FILE_PATH=/payers.json
+      - SUPABASE_URL=https://wbnoxgtrahnlskrlhkmy.supabase.co
+      - SUPABASE_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Indibm94Z3RyYWhubHNrcmxoa215Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDYzNzE2NzYsImV4cCI6MjA2MTk0NzY3Nn0.Y2sqQFFb6oiEwbyWACZhlNKkhk7ahSo37gW7KL1k0gs
+      - TELEGRAM_BOT_TOKEN=7918141497:AAF225FnXmvATYI1gZHsSx3lUJkrXCxNlh8
+      - TELEGRAM_CHAT_ID=1540590265
+    volumes:
+      - ./backend/payers.json:/payers.json
+    networks:
+      - rental-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/payers"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    networks:
+      - rental-network
+
+networks:
+  rental-network:
+    driver: bridge 
