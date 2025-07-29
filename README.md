@@ -2,6 +2,21 @@
 
 A full-stack rental property management application with React frontend and Go backend, using Supabase as the database.
 
+## 🚀 Live Demo
+
+**Frontend**: [https://nescool101.github.io/rentalTracker/](https://nescool101.github.io/rentalTracker/)
+**Backend**: [https://rentalfullnescao.fly.dev](https://rentalfullnescao.fly.dev)
+
+### Screenshots
+
+![Rental Management System Landing Page](image.png)
+
+*Sistema de Gestión de Propiedades de Alquiler - Main landing page showing the comprehensive rental management platform*
+
+![Application Demo](chrome-capture-2025-07-29.gif)
+
+*Live demonstration of the application features and navigation*
+
 ## Features
 
 - Modern React frontend with Vite and TypeScript
@@ -9,6 +24,9 @@ A full-stack rental property management application with React frontend and Go b
 - Go backend with RESTful API endpoints
 - Supabase integration for secure data storage
 - Comprehensive property and tenant management
+- **GitHub Pages deployment** for frontend
+- **Fly.io deployment** for backend
+- **Feature flags** for optional integrations (Telegram backup)
 
 ## Running with Docker Compose
 
@@ -16,8 +34,8 @@ A full-stack rental property management application with React frontend and Go b
 
 2. Clone this repository:
    ```
-   git clone https://github.com/nescool101/rentalfullnescao.git
-   cd rentalfullnescao
+   git clone https://github.com/nescool101/rentalTracker.git
+   cd rentalTracker
    ```
 
 3. Start the application:
