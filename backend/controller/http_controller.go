@@ -18,9 +18,15 @@ func StartHTTPServer() error {
 
 	// Configure CORS to allow requests from the frontend
 	config := cors.DefaultConfig()
-	config.AllowAllOrigins = true // In production, you should specify your frontend domain
+	// Allow specific origins for security (development and production)
+	config.AllowOrigins = []string{
+		"http://localhost:5173",        // Desarrollo - Vite dev server
+		"http://localhost:3000",        // Desarrollo - alternativo
+		"https://nescool101.github.io", // Producción - GitHub Pages
+	}
 	config.AllowMethods = []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"}
 	config.AllowHeaders = []string{"Origin", "Content-Type", "Authorization"}
+	config.AllowCredentials = true
 	router.Use(cors.New(config))
 
 	// Initialize Supabase client

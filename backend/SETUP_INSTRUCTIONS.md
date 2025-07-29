@@ -13,15 +13,15 @@
 ### 1. 📄 **Crear archivo .env**
 
 ```bash
-# En la carpeta backend/, copia el contenido de env.txt a .env
-cp env.txt .env
+# En la carpeta backend/, copia el contenido de .env.example a .env
+cp .env.example .env
 ```
 
 **O crea manualmente:**
 ```bash
 # En backend/
 touch .env
-# Luego copia todo el contenido de env.txt al archivo .env
+# Luego copia todo el contenido de .env.example al archivo .env y configura con valores reales
 ```
 
 ### 2. 🔑 **Configurar Google Drive Service Account**

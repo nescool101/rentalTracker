@@ -24,8 +24,14 @@ profile.cov
 go.work
 go.work.sum
 
-# env file
+# env files
 .env
+backend/.env
+frontend/.env
+
+# Keep example files
+!*.example
+!.env.example
 
 # Editor/IDE
 # .idea/

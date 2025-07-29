@@ -210,22 +210,26 @@ func (s *SupabaseStorageService) DownloadAndDeleteFile(filePath string) ([]byte,
 	fileName := filepath.Base(filePath)
 	userID := s.extractUserIDFromPath(filePath)
 
-	// Intentar respaldar en Telegram antes de eliminar
-	telegramService := GetTelegramService()
-	if telegramService != nil {
-		log.Printf("📤 Respaldando archivo en Telegram antes de eliminar...")
-		backup, err := telegramService.BackupFileToTelegram(fileData, fileName, filePath, userID)
-		if err != nil {
-			log.Printf("⚠️ Error respaldando archivo en Telegram: %v", err)
-			// Enviar notificación de error
-			telegramService.SendBackupError(fileName, userID, err.Error())
+	// Intentar respaldar en Telegram antes de eliminar (solo si está habilitado)
+	if IsTelegramEnabled() {
+		telegramService := GetTelegramService()
+		if telegramService != nil {
+			log.Printf("📤 Respaldando archivo en Telegram antes de eliminar...")
+			backup, err := telegramService.BackupFileToTelegram(fileData, fileName, filePath, userID)
+			if err != nil {
+				log.Printf("⚠️ Error respaldando archivo en Telegram: %v", err)
+				// Enviar notificación de error
+				telegramService.SendBackupError(fileName, userID, err.Error())
+			} else {
+				log.Printf("✅ Archivo respaldado exitosamente en Telegram (File ID: %s)", backup.FileID)
+				// Enviar notificación de éxito
+				telegramService.SendBackupNotification(fileName, userID, backup.FileSize)
+			}
 		} else {
-			log.Printf("✅ Archivo respaldado exitosamente en Telegram (File ID: %s)", backup.FileID)
-			// Enviar notificación de éxito
-			telegramService.SendBackupNotification(fileName, userID, backup.FileSize)
+			log.Printf("⚠️ Servicio de Telegram no disponible, continuando sin backup")
 		}
 	} else {
-		log.Printf("⚠️ Servicio de Telegram no disponible, continuando sin backup")
+		log.Printf("ℹ️ Backup de Telegram deshabilitado por feature flag, continuando sin backup")
 	}
 
 	// Luego eliminar el archivo de Supabase

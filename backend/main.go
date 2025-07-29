@@ -28,10 +28,15 @@ func main() {
 		log.Fatal("No se puede continuar sin servicio de archivos")
 	}
 
-	// Initialize Telegram service for file backup (optional)
-	if err := service.InitializeTelegramService(); err != nil {
-		log.Printf("⚠️ Advertencia: Servicio de Telegram no disponible: %v", err)
-		log.Printf("ℹ️ Los archivos se eliminarán sin backup en Telegram")
+	// Initialize Telegram service for file backup (only if enabled)
+	if service.IsTelegramEnabled() {
+		if err := service.InitializeTelegramService(); err != nil {
+			log.Printf("⚠️ Advertencia: Servicio de Telegram no disponible: %v", err)
+			log.Printf("ℹ️ Los archivos se eliminarán sin backup en Telegram")
+		}
+	} else {
+		log.Printf("ℹ️ Integración de Telegram deshabilitada por feature flag")
+		log.Printf("💡 Para habilitar: establece TELEGRAM_ENABLED=true en .env")
 	}
 
 	// Supabase Storage handles file management automatically

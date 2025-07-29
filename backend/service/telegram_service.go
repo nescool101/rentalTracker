@@ -58,6 +58,12 @@ var telegramService *TelegramService
 
 // InitializeTelegramService inicializa el servicio de Telegram
 func InitializeTelegramService() error {
+	// Verificar si el feature flag de Telegram está habilitado
+	telegramEnabled := os.Getenv("TELEGRAM_ENABLED")
+	if telegramEnabled != "true" {
+		return fmt.Errorf("integración de Telegram deshabilitada por feature flag")
+	}
+
 	botToken := os.Getenv("TELEGRAM_BOT_TOKEN")
 	if botToken == "" {
 		return fmt.Errorf("TELEGRAM_BOT_TOKEN no está configurada")
@@ -89,6 +95,11 @@ func InitializeTelegramService() error {
 // GetTelegramService obtiene la instancia del servicio
 func GetTelegramService() *TelegramService {
 	return telegramService
+}
+
+// IsTelegramEnabled verifica si el feature flag de Telegram está habilitado
+func IsTelegramEnabled() bool {
+	return os.Getenv("TELEGRAM_ENABLED") == "true"
 }
 
 // testConnection prueba la conexión con Telegram

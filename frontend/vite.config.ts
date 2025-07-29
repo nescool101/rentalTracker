@@ -4,6 +4,8 @@ import { VitePWA } from 'vite-plugin-pwa'
 
 // https://vite.dev/config/
 export default defineConfig({
+  // Configure base path for GitHub Pages
+  base: process.env.NODE_ENV === 'production' ? '/rentalTracker/' : '/',
   plugins: [
     react(),
     VitePWA({

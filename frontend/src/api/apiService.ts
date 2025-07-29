@@ -1,8 +1,11 @@
 import axios from 'axios';
 import type { Person, Property, Rental, BankAccount, MaintenanceRequest, RentPayment, RentalHistory, User, Pricing } from '../types';
 
-// Base API URL - automatically proxied through Vite to backend
-const API_URL = '/api';
+// Base API URL - automatically proxied through Vite to backend in development
+// In production, use the actual backend URL deployed on Fly.io
+const API_URL = import.meta.env.PROD 
+  ? (import.meta.env.VITE_API_URL || 'https://rentalfullnescao.fly.dev/api')
+  : '/api';
 
 // Token key must match the one in authService.ts
 const TOKEN_KEY = 'auth_token';
