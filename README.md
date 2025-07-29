@@ -9,11 +9,11 @@ A full-stack rental property management application with React frontend and Go b
 
 ### Screenshots
 
-![Rental Management System Landing Page](image.png)
+![Rental Management System Landing Page](images/image.png)
 
 *Sistema de Gestión de Propiedades de Alquiler - Main landing page showing the comprehensive rental management platform*
 
-![Application Demo](chrome-capture-2025-07-29.gif)
+![Application Demo](images/chrome-capture-2025-07-29.gif)
 
 *Live demonstration of the application features and navigation*
 
