@@ -4,8 +4,8 @@ import { VitePWA } from 'vite-plugin-pwa'
 
 // https://vite.dev/config/
 export default defineConfig({
-  // Configure base path for GitHub Pages - deploy to root since that's where it's working
-  base: '/',
+  // Configure base path for GitHub Pages project site
+  base: process.env.NODE_ENV === 'production' ? '/rentalTracker/' : '/',
   plugins: [
     react(),
     VitePWA({

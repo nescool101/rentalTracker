@@ -10,7 +10,7 @@
     "preview": "vite preview",
     "deploy": "npm run build && gh-pages -d dist"
   },
-  "homepage": "https://nescool101.github.io",
+  "homepage": "https://nescool101.github.io/rentalTracker",
   "dependencies": {
     "@mantine/core": "^7.17.8",
     "@mantine/dates": "^7.17.8",
