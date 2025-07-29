@@ -22,7 +22,7 @@ func StartHTTPServer() error {
 	config.AllowOrigins = []string{
 		"http://localhost:5173",        // Desarrollo - Vite dev server
 		"http://localhost:3000",        // Desarrollo - alternativo
-		"https://nescool101.github.io", // Producción - GitHub Pages
+		"https://nescool101.github.io", // Producción - GitHub Pages (root domain)
 	}
 	config.AllowMethods = []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"}
 	config.AllowHeaders = []string{"Origin", "Content-Type", "Authorization"}
