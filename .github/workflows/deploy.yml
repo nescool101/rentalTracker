@@ -41,13 +41,15 @@ jobs:
       run: |
         cd frontend
         NODE_ENV=production npm run build
+        # Ensure .nojekyll file exists for GitHub Pages
+        touch dist/.nojekyll
+        echo "Build completed. Contents of dist:"
+        ls -la dist/
+        echo "Checking for base path in index.html:"
+        grep -n "rentalTracker" dist/index.html || echo "Base path not found in HTML"
         
     - name: Setup Pages
       uses: actions/configure-pages@v4
-      with:
-        # Force project site configuration
-        enable_pages: true
-        token: ${{ secrets.GITHUB_TOKEN }}
       
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v3
@@ -64,4 +66,11 @@ jobs:
     steps:
     - name: Deploy to GitHub Pages
       id: deployment
-      uses: actions/deploy-pages@v4 
+      uses: actions/deploy-pages@v4
+    
+    - name: Deployment Info
+      run: |
+        echo "🚀 Deployment completed!"
+        echo "📍 Deployment URL: ${{ steps.deployment.outputs.page_url }}"
+        echo "🎯 Expected URL: https://nescool101.github.io/rentalTracker/"
+        echo "🔍 Debug page: ${{ steps.deployment.outputs.page_url }}debug.html" 
