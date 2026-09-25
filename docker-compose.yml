@@ -12,9 +12,9 @@ services:
       - GIN_MODE=release
       - PAYERS_FILE_PATH=/payers.json
       - SUPABASE_URL=https://wbnoxgtrahnlskrlhkmy.supabase.co
-      - SUPABASE_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Indibm94Z3RyYWhubHNrcmxoa215Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDYzNzE2NzYsImV4cCI6MjA2MTk0NzY3Nn0.Y2sqQFFb6oiEwbyWACZhlNKkhk7ahSo37gW7KL1k0gs
-      - TELEGRAM_BOT_TOKEN=7918141497:AAF225FnXmvATYI1gZHsSx3lUJkrXCxNlh8
-      - TELEGRAM_CHAT_ID=1540590265
+      - SUPABASE_KEY=${SUPABASE_KEY}
+      - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN}
+      - TELEGRAM_CHAT_ID=${TELEGRAM_CHAT_ID}
     volumes:
       - ./backend/payers.json:/payers.json
     networks:

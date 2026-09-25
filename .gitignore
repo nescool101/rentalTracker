@@ -36,3 +36,20 @@ frontend/.env
 # Editor/IDE
 # .idea/
 # .vscode/
+
+# --- clean-code: never commit secrets, personal data, or build output
+.env.*
+!.env.example
+backend/certs/
+*.key
+*.pem
+backend/payers.json
+backend/CONTRATO*
+*.docx
+backend/main
+backend/rental-manager
+backend/rentalfullnescao
+backend/rentManager
+node_modules/
+frontend/dist/
+.DS_Store
