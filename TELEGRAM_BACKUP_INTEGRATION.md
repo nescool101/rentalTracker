@@ -8,7 +8,7 @@ Tu aplicación ahora está integrada con **Telegram Bot** para crear backups aut
 
 ### Bot Información:
 - **Nombre**: @bescao_bot  
-- **Token**: `7918141497:AAF225FnXmvATYI1gZHsSx3lUJkrXCxNlh8`
+- **Token**: `YOUR_TELEGRAM_BOT_TOKEN`
 - **Chat ID**: `1540590265`
 - **URL**: https://t.me/bescao_bot
 
@@ -16,8 +16,8 @@ Tu aplicación ahora está integrada con **Telegram Bot** para crear backups aut
 
 ```env
 # Telegram Bot Configuration
-TELEGRAM_BOT_TOKEN=7918141497:AAF225FnXmvATYI1gZHsSx3lUJkrXCxNlh8
-TELEGRAM_CHAT_ID=1540590265
+TELEGRAM_BOT_TOKEN=YOUR_TELEGRAM_BOT_TOKEN
+TELEGRAM_CHAT_ID=YOUR_CHAT_ID
 ```
 
 ## 🚀 Funcionalidades Implementadas
@@ -190,8 +190,8 @@ curl -X POST \
 ### Variables de entorno requeridas:
 ```env
 # Telegram Bot (obligatorio para backup)
-TELEGRAM_BOT_TOKEN=7918141497:AAF225FnXmvATYI1gZHsSx3lUJkrXCxNlh8
-TELEGRAM_CHAT_ID=1540590265
+TELEGRAM_BOT_TOKEN=YOUR_TELEGRAM_BOT_TOKEN
+TELEGRAM_CHAT_ID=YOUR_CHAT_ID
 
 # Supabase (obligatorio)
 SUPABASE_URL=https://wbnoxgtrahnlskrlhkmy.supabase.co

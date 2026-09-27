@@ -38,6 +38,9 @@ jobs:
         npm ci
         
     - name: Build application
+      env:
+        VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
+        VITE_SUPABASE_KEY: ${{ secrets.VITE_SUPABASE_KEY }}
       run: |
         cd frontend
         NODE_ENV=production npm run build

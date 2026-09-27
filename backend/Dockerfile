@@ -17,5 +17,8 @@ FROM debian:bookworm
 # Install CA certificates and curl for healthchecks
 RUN apt update && apt install -y ca-certificates curl && update-ca-certificates
 
+RUN useradd --system --create-home --home-dir /app app
+WORKDIR /app
 COPY --from=builder /run-app /usr/local/bin/
+USER app
 CMD ["run-app"]

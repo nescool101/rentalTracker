@@ -1,0 +1,23 @@
+[
+  {
+    "name": "Nombre Arrendatario",
+    "phone": "3000000000",
+    "rental_email": "arrendatario@ejemplo.com",
+    "rental_date": "",
+    "renter_name": "Nombre Arrendador",
+    "renter_email": "arrendador@ejemplo.com",
+    "nit": "000000000",
+    "property_address": "Calle 0 # 0-0",
+    "property_type": "",
+    "rental_start": "",
+    "rental_end": "",
+    "monthly_rent": 0,
+    "bank_name": "",
+    "account_type": "",
+    "bank_account_number": "0000000000",
+    "account_holder": "",
+    "payment_terms": "",
+    "additional_notes": "",
+    "unpaid_months": 0
+  }
+]
